@@ -110,7 +110,7 @@ body {
 		display: inline;
 	}
 
-	#comment {
+	.comment {
 		margin-top: 7px;
 
 		.user-name {
@@ -151,6 +151,17 @@ body {
 	}
 }
 
+.new_comment {
+	input {
+		border: 1px transparent;
+		width: 100%;
+		color: #555;
+		height: 34px;
+		padding: 6px 12px;
+		background-color: #fff
+	}
+}
+
 .form-wrapper {
 	width: 60%;
 	margin: 20px auto;
@@ -168,4 +179,26 @@ body {
 .alert-container {
 	width: 260px;
 	margin: 0 auto;
+}
+
+.wrapper {
+	width: 600px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid #ededed;
+	border-radius: 3px;
+	padding: 20px 40px 40px 40px;
+
+	h2, form {
+		border-bottom: 1px solid #eeefef;	}
+
+	h2 {
+		padding-bottom: 10px;
+		margin-bottom: 15px;
+	}
+
+	form {
+		padding-bottom: 20px;
+		margin-bottom: 10px;
+	}
 }

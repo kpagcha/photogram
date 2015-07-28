@@ -31,7 +31,7 @@
 			</div>
 			<div class="comment-form col-sm-11">
 				<%= form_for([ post, post.comments.build ], remote:true) do |f| %>
-					<%= f.text_field :content, placeholder: 'Add a comment...', id: "comment_content_" + post.id.to_s, class: 'form-control' %>
+					<%= f.text_field :content, placeholder: 'Add a comment...', id: "comment_content_" + post.id.to_s, autocomplete: :off %>
 				<% end %>
 			</div>
 		</div>
