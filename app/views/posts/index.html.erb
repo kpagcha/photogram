@@ -2,7 +2,7 @@
 	<div class="posts-wrapper row">
 		<div class="post">
 			<div class="post-head">
-				John Doe
+				<%= post.user.user_name %>
 			</div>
 			<div class="image center-block">
 				<%= link_to (image_tag post.image.url(:medium), class: 'img-responsive'), post_path(post) %>
