@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+
+  get 'comments/crate'
+
   root 'posts#index'
 
   resources :posts do
