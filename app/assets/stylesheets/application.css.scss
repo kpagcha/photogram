@@ -23,6 +23,8 @@ body {
 }
 
 .navbar-brand {
+	padding-top: 7px;
+
 	a {
 		color: #125688;
 	}
@@ -121,6 +123,14 @@ body {
 		.delete-comment {
 			float: right;
 			color: #515151;
+		}
+	}
+
+	.see-more {
+		margin-top: 7px;
+
+		a {
+			color: #a5a7aa;
 		}
 	}
 }

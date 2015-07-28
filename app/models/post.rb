@@ -8,4 +8,14 @@ class Post < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :comments, dependent: :destroy
+
+	@@comment_limit = 5
+
+	def last_comments limit
+		comments.order("created_at DESC").take(limit)
+	end
+
+	def self.comment_limit
+		@@comment_limit
+	end
 end

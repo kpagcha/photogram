@@ -1,0 +1,3 @@
+comments = $('#comments_<%= @post.id %>');
+comments.html("<%= j render @post.comments.order('created_at DESC'), post: @post, comment: @comment %>");
+comments.next().remove();
