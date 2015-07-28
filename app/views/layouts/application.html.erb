@@ -28,7 +28,14 @@
 	</div>
 </div>
 
-<%= yield %>
+<div class="container">
+	<% flash.each do |name, msg| %>
+		<div class="alert-container">
+			<%= content_tag :div, msg, class: [ 'alert', alert_for(name), 'text-center' ] %>
+		</div>
+	<% end %>
+	<%= yield %>
+</div>
 
 </body>
 </html>
