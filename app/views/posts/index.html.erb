@@ -1,1 +1,9 @@
 <h1>Photogram</h1>
+<%= link_to "Upload Photo", new_post_path %>
+
+<div>
+	<% @posts.each do |post| %>
+		<p><%= image_tag post.image.url(:small) %></p>
+		<p><%= link_to truncate(post.caption, length: 40, separator: ' '), post %></p>
+	<% end %>
+</div>
