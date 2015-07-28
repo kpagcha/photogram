@@ -1,11 +1,13 @@
 <div class="posts-wrapper">
 	<div class="post">
 		<div class="post-head">
-			<div class="thumb-img"></div>
+			<div class="thumb-img col-sm-1">
+				<%= image_tag(post.user.avatar.url(:thumbnail), class: 'img-circle') %>
+			</div>
 			<div class="user-name col-sm-6">
 				<%= post.user.user_name %>
 			</div>
-			<div class="time-ago col-sm-6">
+			<div class="time-ago col-sm-5">
 				<%= time_ago_in_words post.created_at %> ago
 			</div>
 		</div>

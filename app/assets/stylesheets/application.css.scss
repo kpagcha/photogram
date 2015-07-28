@@ -28,6 +28,10 @@ body {
 	a {
 		color: #125688;
 	}
+
+	.brand-wrapper {
+		border-bottom: 2px solid #000;
+	}
 }
 
 .navbar-default {
@@ -60,14 +64,21 @@ body {
 	.post-head {
 		flex-direction: row;
 		height: 64px;
-		padding-left: 24px;
-		padding-right: 24px;
-		padding-top: 24px;
 		color: #125688;
 		font-size: 15px;
 		line-height: 18px;
 
+		.thumb-img {
+			padding-top: 10px;
+			padding-right: 0px;
+
+			img {
+				display: block;
+			}
+		}
+
 		.user-name, .time-ago {
+			padding: 24px 24px 0px 24px;
 			display: block;
 		}
 
@@ -210,5 +221,12 @@ body {
 	form {
 		padding-bottom: 20px;
 		margin-bottom: 10px;
+	}
+
+	.img-wrapper {
+		img {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 }
