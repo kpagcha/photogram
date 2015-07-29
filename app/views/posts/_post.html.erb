@@ -19,7 +19,6 @@
 		<div class="post-bottom">
 			<div class="likes" id="likes_<%= post.id %>">
 				<%= pluralize(number_to_human(post.get_likes.size, precision: 5), 'like') %>
-				<%= pluralize(number_to_human(1305878, precision: 5), 'like') %>
 			</div>
 			<div class="caption">
 				<div class="user-name">
