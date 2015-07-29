@@ -17,7 +17,19 @@
 			<%= content_tag :div, msg, class: [ 'alert', alert_for(name), 'text-center' ] %>
 		</div>
 	<% end %>
-	<%= yield %>
+	<% if user_signed_in? %>
+		<div class="col-sm-12 profile-float-container">
+			<div class="profile-float-wrapper">
+				<span class="glyphicon glyphicon-zoom-out minimize"></span>
+				<%= link_to user_posts_path(current_user) do %>
+					<%= image_tag(current_user.avatar.url(:small), class: 'img-circle profile-nav-img') %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+	<div class="col-sm-12">
+		<%= yield %>
+	</div>
 </div>
 
 </body>

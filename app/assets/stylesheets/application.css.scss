@@ -64,9 +64,12 @@ body {
 	.post-head {
 		flex-direction: row;
 		height: 64px;
-		color: #125688;
 		font-size: 15px;
 		line-height: 18px;
+
+		a {
+			color: #125688;
+		}
 
 		.thumb-img {
 			padding-top: 10px;
@@ -112,11 +115,12 @@ body {
 		margin-bottom: 7px;
 	}
 
-	.user-name {
+	.user-name, .user-name > a {
 		font-weight: 500;
 		margin-right: 0.3em;
 		color: #125688;
 		font-size: 15px;
+		text-decoration: none;
 	}
 
 	.user-name, .caption-content {
@@ -126,7 +130,7 @@ body {
 	.comment {
 		margin-top: 7px;
 
-		.user-name {
+		.user-name, .user-name > a {
 			font-weight: 500;
 			margin-right: 0.3em;
 		}
@@ -227,6 +231,98 @@ body {
 		img {
 			display: block;
 			margin: 0 auto;
+		}
+	}
+}
+
+.profile-float-container {
+	z-index: 99;
+}
+
+.profile-float-wrapper {
+	position: fixed;
+	top: 40%;
+	height: 20%;
+	height: 100px;
+
+	@media (max-width: 1000px) {
+		display: block !important;
+	}
+
+	.minimize {
+		position: absolute;
+		top: -20%;
+		left: 43%;
+		opacity: 0;
+		transition: all 0.25s linear;
+
+		@media (max-width: 1000px) {
+			display: none;
+		}
+	}
+
+	&:hover > .minimize {
+		opacity: 1;
+		cursor: pointer;
+		transition: all 0.5s linear;
+	}
+}
+
+@media (max-width: 1200px) {
+	.profile-float-wrapper {
+		left: 5%;
+	}
+}
+
+@media (max-width: 1000px) {
+	.profile-float-wrapper {
+		position: relative;
+		top: 10%;
+		left: 42%;
+	}
+}
+
+.navbar-nav {
+	.profile-nav-li {
+		display: none;
+
+		a {
+			padding: 6px 0px 0px 10px;
+		}
+
+		.maximize {
+			position: absolute;
+			left: -40%;
+			top: 45%;
+			opacity: 0;
+			transition: all 0.25s linear;
+		}
+
+		&:hover > .maximize {
+			opacity: 1;
+			cursor: pointer;
+			transition: all 0.25s linear;
+		}
+	}
+}
+
+.profile-header {
+	max-width: 640px;
+	margin: 0 auto;
+	font-weight: bold;
+
+	h2 {
+		color: #125688;
+	}
+
+	.info {
+		color: #888;
+
+		.border-right {
+			border-right: 1px solid #ddd;
+			@media(max-width: 768px) {
+				border-right: 0px solid transparent;
+			}
 		}
 	}
 }

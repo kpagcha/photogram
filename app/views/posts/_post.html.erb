@@ -1,13 +1,15 @@
 <div class="posts-wrapper">
 	<div class="post">
 		<div class="post-head">
-			<div class="thumb-img col-sm-1">
-				<%= image_tag(post.user.avatar.url(:thumbnail), class: 'img-circle') %>
-			</div>
-			<div class="user-name col-sm-6">
-				<%= post.user.user_name %>
-			</div>
-			<div class="time-ago col-sm-5">
+			<%= link_to user_posts_path(post.user) do %>
+				<div class="thumb-img col-sm-1 col-xs-2">
+					<%= image_tag(post.user.avatar.url(:thumbnail), class: 'img-circle') %>
+				</div>
+				<div class="user-name col-sm-6 col-xs-3">
+					<%= post.user.user_name %>
+				</div>
+			<% end %>
+			<div class="time-ago col-sm-5 col-xs-7">
 				<%= time_ago_in_words post.created_at %> ago
 			</div>
 		</div>
@@ -17,7 +19,7 @@
 		<div class="post-bottom">
 			<div class="caption">
 				<div class="user-name">
-					<%= post.user.user_name %>
+					<%= link_to post.user.user_name, user_posts_path(post.user) %>
 				</div>
 				<%= post.caption %>
 			</div>

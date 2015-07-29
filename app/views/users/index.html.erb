@@ -1,0 +1,13 @@
+<% if current_user == @user %>
+ 	<div class="text-center profile-header">
+ 		<h2>Your Profile</h2>
+ 		<div class="info col-sm-7 col-sm-offset-2">
+	 		<div class="col-sm-4 border-right"><%= pluralize(@posts.count, 'post') %></div>
+	 		<div class="col-sm-4 border-right">0 followers</div>
+	 		<div class="col-sm-4">0 following</div>
+	 	</div>
+ 	</div>
+<% end %>
+<% @posts.each do |post| %>
+	<%= render 'posts/post', post: post %>
+<% end %>

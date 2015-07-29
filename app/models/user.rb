@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
   		where(conditions.to_hash).first
   	end
   end
+
+  def to_param
+    user_name
+  end
 end

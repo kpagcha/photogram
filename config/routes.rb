@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: { registrations: 'registrations' }
+
+  get ':user_name', to: 'users#index', as: 'user_posts'
 end
