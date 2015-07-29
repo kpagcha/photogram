@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :posts do
   	resources :comments
+  	member do
+  		put 'like', to: 'posts#like', as: 'like'
+  		put 'unlike', to: 'posts#unlike', as: 'unlike'
+  	end
   end
 
   devise_for :users, controllers: { registrations: 'registrations' }

@@ -111,6 +111,10 @@ body {
 		display: inline;
 	}
 
+	.likes {
+		font-weight: bold;
+	}
+
 	.caption {
 		margin-bottom: 7px;
 	}
@@ -169,6 +173,10 @@ body {
 
 	.like-button {
 		margin-top: 7px;
+
+		a {
+			color: #e02323;
+		}
 	}
 
 	.comment-form {

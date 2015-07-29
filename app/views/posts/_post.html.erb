@@ -17,6 +17,10 @@
 			<%= link_to (image_tag post.image.url(:medium), class: 'img-responsive'), post_path(post) %>
 		</div>
 		<div class="post-bottom">
+			<div class="likes" id="likes_<%= post.id %>">
+				<%= pluralize(number_to_human(post.get_likes.size, precision: 5), 'like') %>
+				<%= pluralize(number_to_human(1305878, precision: 5), 'like') %>
+			</div>
 			<div class="caption">
 				<div class="user-name">
 					<%= link_to post.user.user_name, user_posts_path(post.user) %>
@@ -38,7 +42,15 @@
 		</div>
 		<div class="comment-like-form row">
 			<div class="like-button col-sm-1">
-				<span class="glyphicon glyphicon-heart-empty"></span>
+				<% unless current_user.voted_for? post %>
+					<%= link_to like_post_path(post), method: :put, remote: true do %>
+						<span class="glyphicon glyphicon-heart-empty" id="like_button_<%= post.id %>"></span>
+					<% end %>
+				<% else %>
+					<%= link_to unlike_post_path(post), method: :put, remote: true do %>
+						<span class="glyphicon glyphicon-heart" id="like_button_<%= post.id %>"></span>
+					<% end %>
+				<% end %>
 			</div>
 			<div class="comment-form col-sm-11">
 				<%= form_for([ post, post.comments.build ], remote:true) do |f| %>

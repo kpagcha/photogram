@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  acts_as_voter
+
   # Virtual attribute for authenticating by either username or email
   # This is an addition to a real persisted field, 'user_name'
   attr_accessor :login
