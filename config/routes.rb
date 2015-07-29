@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
 
   get ':user_name', to: 'users#index', as: 'user_posts'
+  put ':user_name', to: 'users#follow', as: 'follow_user'
+  put ':user_name', to: 'users#unfollow', as: 'unfollow_user'
 end

@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :followers, foreign_key: "followed_id", class_name: "Follow", dependent: :destroy
+  has_many :followed, foreign_key: "follower_id", class_name: "Follow", dependent: :destroy
+
   acts_as_voter
 
   # Virtual attribute for authenticating by either username or email
@@ -31,5 +34,13 @@ class User < ActiveRecord::Base
 
   def to_param
     user_name
+  end
+
+  def follows? u
+    u.followed.include? self
+  end
+
+  def followed_by? user
+    followers.include? user
   end
 end
