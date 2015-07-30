@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
+  get '/posts/explore', to: 'posts#explore', as: 'explore_posts'
   resources :posts do
   	resources :comments
   	member do

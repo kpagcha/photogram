@@ -17,6 +17,7 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<% if user_signed_in? %>
+					<li><%= link_to "Explore", explore_posts_path %></li>
 					<li class="profile-nav-li">
 						<span class="glyphicon glyphicon-zoom-in maximize"></span>
 						<%= link_to user_posts_path(current_user) do %>

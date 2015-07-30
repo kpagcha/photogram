@@ -1,0 +1,10 @@
+<div class="search-wrapper">
+	<h4>Search</h4>
+	<%= search_form_for @q, url: explore_posts_path do |f| %>
+		<div class="input-group">
+			<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+			<%= f.search_field :caption_or_user_user_name_cont, class: 'form-control' %>
+		</div>
+	<% end %>
+</div>
+<%= render 'list', posts: @posts %>
