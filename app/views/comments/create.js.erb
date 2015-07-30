@@ -1,2 +1,11 @@
 $('#comments_<%= @post.id %>').prepend("<%= j render 'comments/comment', post: @post, comment: @comment %>");
 $('#comment_content_<%= @post.id %>').val('');
+
+<% if @post.comments.count > 5 %>
+	$('#comments_<%= @post.id %> .comment').last().remove();
+
+	if($('#comments_<%= @post.id %> div').last().attr('class') != 'see-comments-wrapper')
+		$('#comments_<%= @post.id %>').append("<%= j render 'posts/see_comments_wrapper', post: @post %>")
+<% else %>
+	$('#comments_<%= @post.id %> .see-all').remove();
+<% end %>

@@ -145,12 +145,14 @@ body {
 		}
 	}
 
-	.see-more {
+	.see-comments-wrapper {
 		margin-top: 7px;
+		color: #a5a7aa;
+	}
 
-		a {
-			color: #a5a7aa;
-		}
+	.see-more, .see-all {
+		margin-top: 7px;
+		color: #a5a7aa;
 	}
 }
 

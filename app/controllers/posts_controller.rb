@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :find_post, only: [ :show, :edit, :update, :destroy, :like, :unlike ]
+	before_action :find_post, only: [ :show, :edit, :update, :destroy, :like, :unlike, :load_more_comments ]
 	before_action :owned_post, only: [ :edit, :update, :destroy ]
 	before_action :authenticate_user!
 
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
 		if @post.save
 			flash[:success] = "Your post has been created!"
-			redirect_to posts_path
+			redirect_to root_path
 		else
 			flash.now[:alert] = "Your new post couldn't be created! Please check the form"
 			render 'new'

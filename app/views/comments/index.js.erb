@@ -1,3 +1,10 @@
 comments = $('#comments_<%= @post.id %>');
-comments.html("<%= j render @post.comments.order('created_at DESC'), post: @post, comment: @comment %>");
-comments.next().remove();
+comments.html("<%= j render @comments, post: @post, comment: @comment %>");
+
+
+current_comments = ($('#comments_<%= @post.id %>').children('.comment').length);
+total_comments = ("<%= @post.comments.count %>");
+
+if (comments.children('div').last().attr('class') != 'see-comments-wrapper' && current_comments < total_comments) {
+	$('#comments_<%= @post.id %>').append("<%= j render 'posts/see_comments_wrapper', post: @post %>")
+}

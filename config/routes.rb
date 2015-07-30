@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/posts/explore', to: 'posts#explore', as: 'explore_posts'
   resources :posts do
+    get '/comments/page/:page', to: 'comments#index', as: 'more_comments'
   	resources :comments
   	member do
   		put 'like', to: 'posts#like', as: 'like'

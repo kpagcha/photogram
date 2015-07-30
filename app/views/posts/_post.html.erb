@@ -30,12 +30,10 @@
 				<div>
 					<div id="comments_<%= post.id %>">
 						<%= render 'comments/comments', post: post, comments: post.last_comments(Post.comment_limit) %>
+						<% if post.comments.count > Post.comment_limit %>
+							<%= render 'posts/see_comments_wrapper', post: post %>
+						<% end %>
 					</div>
-					<% if post.comments.count > Post.comment_limit %>
-						<div class="see-more">
-							<%= link_to "See more...", post_comments_path(post), remote: true %>
-						</div>
-					<% end %>
 				</div>
 			<% end %>
 		</div>
