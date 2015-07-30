@@ -18,7 +18,7 @@
 //= require jquery.cookie
 
 ready = function() {
-	var hide_float = $.cookie('profile-float-hidden')
+	var hide_float = $.cookie('profile-float-hidden');
 	if (hide_float == 'true') {
 		$('.profile-float-wrapper').hide();
 		$('.profile-nav-li').show();
