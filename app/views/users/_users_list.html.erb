@@ -1,0 +1,37 @@
+<div class="follow-info">
+	<% unless users.empty? %>
+		<ul class="list-unstyled">
+			<% users.each do |user| %>
+				<li>
+					<div class="thumb-img col-sm-2">
+						<%= link_to user_posts_path(user) do %>
+							<%= image_tag(user.avatar.url(:thumbnail), size: "32", class: 'img-circle') %>
+						<% end %>
+					</div>
+					<div class="user-name col-sm-7">
+						<%= link_to user_posts_path(user) do %>
+							<%= user.user_name %>
+						<% end %>
+					</div>
+					<% if current_user != user %>
+						<div class="col-sm-3">
+							<div class="follow-wrapper">
+								<% if current_user.following? user %>
+									<%= link_to "Unfollow", unfollow_user_path(user), method: :put, class: 'unfollow', remote: true, id: "unfollow_#{user.id}" %>
+								<% else %>
+									<%= link_to"Follow", follow_user_path(user), method: :put, class: 'follow', remote: true, id: "follow_#{user.id}" %>
+								<% end %>
+							</div>
+						</div>						
+					<% end %>
+					<div class="clearfix"></div>
+				</li>
+			<% end %>
+		</ul>
+	<% else %>
+		<div class="empty">
+			None found :-(
+		</div>
+	<% end %>
+</div>
+<div class="text-center back"><%= link_to "Back", user_posts_path(current_user) %></div>

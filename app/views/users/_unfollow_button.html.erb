@@ -1,0 +1,4 @@
+<div class="title title-unfollow">UNFOLLOW</div>
+<%= link_to unfollow_user_path(user), method: :put, class: 'unfollow', id: "unfollow_#{user.id}" do %>
+	<span class="glyphicon glyphicon-remove"></span>
+<% end %>

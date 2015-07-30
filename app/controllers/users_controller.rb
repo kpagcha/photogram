@@ -1,20 +1,34 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :find_user, only: [ :index ]
-	before_action :set_user_to_follow, only: [ :follow, :unfollow ]
+	before_action :find_user, only: [ :index, :followers, :following ]
+	before_action :set_other_user, only: [ :follow, :unfollow ]
 
 	def index
 		@posts = @user.posts
 	end
 
 	def follow
-		@user_to_follow.followers << current_user
-		redirect_to :back
+		current_user.follow @other_user
+		respond_to do |format|
+			format.html { redirect_to :back }
+			format.js
+		end
 	end
 
 	def unfollow
-		@user_to_follow.followers.delete current_user
-		redirect_to :back
+		current_user.stop_following @other_user
+		respond_to do |format|
+			format.html { redirect_to :back }
+			format.js
+		end
+	end
+
+	def followers
+		@users = @user.followers
+	end
+
+	def following
+		@users = @user.all_following
 	end
 
 	private
@@ -23,7 +37,7 @@ class UsersController < ApplicationController
 		@user = User.find_by_user_name(params[:user_name])
 	end
 
-	def set_user_to_follow
-		@user_to_follow = User.find_by_user_name(params[:user_name])
+	def set_other_user
+		@other_user = User.find_by_user_name(params[:user_name])
 	end
 end

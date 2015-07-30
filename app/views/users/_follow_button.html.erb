@@ -1,0 +1,4 @@
+<div class="title title-follow">FOLLOW</div>
+<%= link_to follow_user_path(user), method: :put, class: 'follow', id: "@follow_#{user.id}" do %>
+	<span class="glyphicon glyphicon-plus"></span>
+<% end %>

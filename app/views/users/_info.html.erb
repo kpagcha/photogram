@@ -1,0 +1,14 @@
+<div class="text-center profile-header">
+	<h2><%= user.user_name %></h2>
+	<div class="info">
+		<div class="col-sm-4 border-right">
+			<%= pluralize(user.posts.count, 'post') %>
+		</div>
+		<div class="col-sm-4 border-right">
+			<%= link_to pluralize(user.followers_count, 'follower'), user_followers_path %>
+		</div>
+		<div class="col-sm-4">
+			<%= link_to "#{@user.follow_count} following", user_following_path %>
+		</div>
+	</div>
+</div>

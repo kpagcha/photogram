@@ -1,0 +1,6 @@
+$('#follow_<%= @other_user.id %>')
+	.removeClass("follow")
+	.addClass("unfollow")
+	.html("Unfollow")
+	.attr("href", "<%= unfollow_user_path(@other_user) %>")
+	.attr("id", "unfollow_<%= @other_user.id %>");
