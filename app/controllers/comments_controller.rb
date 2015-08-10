@@ -2,8 +2,11 @@ class CommentsController < ApplicationController
 	before_action :find_post
 
 	def index
-		limit = params[:page]
-		@comments = @post.comments.order("created_at DESC").take(limit)
+		if params[:page].blank?
+			@comments = @post.comments.order("created_at DESC")
+		else
+			@comments = @post.comments.order("created_at DESC").take limit
+		end
 		respond_to do |format|
 			format.html { redirect_to root_path }
 			format.js
