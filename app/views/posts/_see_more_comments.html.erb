@@ -1,1 +1,1 @@
-<%= link_to "See more...", post_more_comments_path(post, params[:page].blank? ? 10 : params[:page].to_i + Post.comment_limit), remote: true, class: 'see-more' %>
+<%= link_to "See more...", post_more_comments_path(post, params[:page].blank? ? Post.comment_limit*2 : params[:page].to_i + Post.comment_limit), remote: true, class: 'see-more' %>

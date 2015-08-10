@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 		if params[:page].blank?
 			@comments = @post.comments.order("created_at DESC")
 		else
+			limit = params[:page]
 			@comments = @post.comments.order("created_at DESC").take limit
 		end
 		respond_to do |format|
