@@ -12,6 +12,4 @@
 		</div>
 	</div>
 <% end %>
-<% @posts.each do |post| %>
-	<%= render 'posts/post', post: post %>
-<% end %>
+<%= render 'posts/list', posts: @posts %>

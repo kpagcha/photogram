@@ -1,7 +1,6 @@
 comments = $('#comments_<%= @post.id %>');
 comments.html("<%= j render @comments, post: @post, comment: @comment %>");
 
-
 current_comments = ($('#comments_<%= @post.id %>').children('.comment').length);
 total_comments = ("<%= @post.comments.count %>");
 

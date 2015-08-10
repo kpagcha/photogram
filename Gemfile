@@ -32,6 +32,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts_as_follower'
 gem 'ransack'
 
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,3 +55,4 @@ group :development, :test do
   gem 'spring'
 end
 
+ruby "2.1.5"

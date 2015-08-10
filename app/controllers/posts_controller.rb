@@ -4,7 +4,9 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@posts = Post.where(user_id: current_user.all_following.collect(&:id).push(current_user.id)).order("created_at DESC")
+		@posts = Post.where(user_id: current_user.all_following.collect(&:id)
+			.push(current_user.id))
+			.order("created_at DESC")
 	end
 
 	def explore
