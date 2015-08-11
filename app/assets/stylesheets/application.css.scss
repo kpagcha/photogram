@@ -17,9 +17,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.full-height {
+	width: 100%;
+	height: calc( 100% - 54px );
+}
+
 body {
 	background-color: #fafafa;
 	font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+.navbar {
+	margin-bottom: 0px;
 }
 
 .navbar-brand {
@@ -197,15 +217,6 @@ body {
 	}
 }
 
-.form-wrapper {
-	width: 60%;
-	margin: 20px auto;
-	background-color: #fff;
-	padding: 40px;
-	border: 1px solid #eeefef;
-	border-radius: 3px;
-}
-
 .edit-links {
 	margin-top: 20px;
 	margin-bottom: 40px;
@@ -216,6 +227,7 @@ body {
 	margin: 0 auto;
 }
 
+/* quizá ya no sirva después de cambiar los registrations forms */
 .wrapper {
 	width: 600px;
 	margin: 0 auto;
@@ -465,4 +477,52 @@ body {
 	max-width: 240px;
 	margin: 0 auto;
 	text-align: center;
+}
+
+.registration-bg {
+	background: url(registrationbackground.jpg) no-repeat center center fixed;
+}
+
+.login-bg {
+	background: url(loginbackground.jpg) no-repeat center center fixed;
+}
+
+.bg {
+	padding-top: 4em;
+	height: 100%;
+	width: 100%;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.log-in {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border: none;
+}
+
+.panel {
+	border-radius: 8px;
+}
+
+.panel-heading {
+	h2 {
+		text-align: center;
+	}
+}
+
+.margin-top {
+	margin-top: 20px;
+}
+
+#image-preview {
+	margin: 0px auto;
+}
+
+#post_image {
+	padding: 1em;
+	margin: 0px auto;
 }
