@@ -7,12 +7,13 @@ class PostsController < ApplicationController
 		@posts = Post.where(user_id: current_user.all_following.collect(&:id)
 			.push(current_user.id))
 			.order("created_at DESC")
+			.page(params[:page])
 	end
 
 	def explore
 		@q = Post.ransack(params[:q])
 		@posts = @q ? @q.result(distinct: true) : Post.all
-		@posts = @posts.order("created_at DESC")
+		@posts = @posts.order("created_at DESC").page(params[:page])
 	end
 
 	def show

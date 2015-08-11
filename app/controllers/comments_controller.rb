@@ -2,10 +2,10 @@ class CommentsController < ApplicationController
 	before_action :find_post
 
 	def index
-		if params[:page].blank?
+		if params[:comment_page].blank?
 			@comments = @post.comments.order("created_at DESC")
 		else
-			limit = params[:page]
+			limit = params[:comment_page]
 			@comments = @post.comments.order("created_at DESC").take limit
 		end
 		respond_to do |format|

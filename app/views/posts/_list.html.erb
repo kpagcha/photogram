@@ -1,3 +1,12 @@
-<% posts.each do |post| %>
-	<%= render 'posts/post', post: post %>
+<div id="posts">
+	<% posts.each do |post| %>
+		<%= render 'posts/post', post: post %>
+	<% end %>
+</div>
+
+<% link = link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more' %>
+<% if link %>
+	<div id="paginator" class="text-center">
+		<%= link %>
+	</div>
 <% end %>

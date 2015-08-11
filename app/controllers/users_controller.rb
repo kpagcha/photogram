@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	before_action :set_other_user, only: [ :follow, :unfollow ]
 
 	def index
-		@posts = @user.posts.order("created_at DESC")
+		@posts = @user.posts.order("created_at DESC").page(params[:page])
 	end
 
 	def follow
