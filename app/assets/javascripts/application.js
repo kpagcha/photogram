@@ -38,6 +38,19 @@ ready = function() {
 		$('.profile-nav-li').fadeOut();
 		$('.profile-float-wrapper').fadeIn();
 	});
+
+	$(window).scroll(function() {
+		if ($('#paginator').length) {
+			var url = $('#load_more').attr('href');
+			if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50 && $.active == 0) {
+
+				$.get(url, function(data) {
+					$('#paginator').html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
+					$.getScript(url);
+				});
+			}
+		}
+	});
 };
 
 $(document).ready(ready);

@@ -16,6 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "spinner";
 
 html, body {
 	width: 100%;
@@ -528,22 +529,11 @@ body {
 }
 
 #paginator {
-	color: #4090db;
 	height: 120px;
 	width: 120px;
 	margin: 60px auto 40px;
 	position: relative;
 	display: table;
-	border: 2px solid;
-	border-color: #4090db;
-	border-radius: 50%;
-	transition: all 0.5s;
-
-	&:hover {
-		border-color: #2d6da8;
-		border-radius: 50%;
-		transition: all 0.5s;
-	}
 }
 
 #load_more {
@@ -551,11 +541,4 @@ body {
 	font-size: 12px;
 	padding: 0px 9px;
 	vertical-align: middle;
-	text-decoration: none;
-	transition: all 0.5s;
-
-	a &:hover {
-		color: #2d6da8;
-		transition: all 0.5s;
-	}
 }
