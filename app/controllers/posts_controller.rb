@@ -8,11 +8,21 @@ class PostsController < ApplicationController
 			.push(current_user.id))
 			.order("created_at DESC")
 			.page(params[:page])
+
+		if params[:limit]
+			@posts = @posts.per params[:limit]
+		end
 	end
 
 	def explore
-		@q = Post.ransack(params[:q])
-		@posts = @q ? @q.result(distinct: true) : Post.all
+		@q = Post.ransack params[:q]
+		if @q
+			100.times{puts "1 - #{params[:q]}"}
+			@posts = @q.result(distinct: true)
+		else
+			100.times{puts "2 - #{params[:q]}"}
+			@posts = Post.all
+		end
 		@posts = @posts.order("created_at DESC").page(params[:page])
 	end
 

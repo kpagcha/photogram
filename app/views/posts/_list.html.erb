@@ -5,5 +5,5 @@
 </div>
 
 <div id="paginator">
-	<%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more', class: 'hidden' %>
+	<%= link_to_next_page posts, 'LOAD MORE', remote: true, id: 'load_more', class: 'hidden', params: params %>
 </div>

@@ -1,10 +1,21 @@
+	<!-- <div class="search-wrapper">
+		<h4>Search</h4>
+		<%= search_form_for @q, url: explore_posts_path do |f| %>
+			<div class="input-group">
+				<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+				<%= f.search_field :caption_or_user_user_name_cont, class: 'form-control', autocomplete: :off %>
+			</div>
+		<% end %>
+	</div> -->
 <div class="search-wrapper">
-	<h4>Search</h4>
 	<%= search_form_for @q, url: explore_posts_path do |f| %>
-		<div class="input-group">
-			<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-			<%= f.search_field :caption_or_user_user_name_cont, class: 'form-control', autocomplete: :off %>
+		<%= f.search_field :caption_or_user_user_name_cont, autocomplete: :off, class: 'search-input' %>
+		<div class="placeholder">
+			<div class>
+				<span class="glyphicon glyphicon-search"></span>
+				<span>Search</span>
+			</div>
 		</div>
 	<% end %>
 </div>
-<%= render 'list', posts: @posts %>
+<%= render 'posts', posts: @posts %>
