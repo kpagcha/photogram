@@ -1,9 +1,6 @@
 <div class="display-wrapper">
-	<span class="glyphicon glyphicon-th-list" id="mosaic-display"></span>
-	<span class="glyphicon glyphicon-th" id="list-display"></span>
-	<%= form_tag do %>
-		<%= hidden_field_tag :limit, 10 %>
-	<% end %>
+	<span class="glyphicon glyphicon-th-list disabled" id="list-display"></span>
+	<span class="glyphicon glyphicon-th" id="mosaic-display"></span>
 </div>
 
 <%= render 'posts/list', posts: @posts %>

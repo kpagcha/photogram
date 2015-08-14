@@ -44,21 +44,81 @@ ready = function() {
 
 	/* Infinite scrolling */
 
+	var loadNextPage = function(url) {
+		$.get(url, function(data) {
+			$('#paginator').html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
+			$.getScript(url).done(function() {
+				if ($('#mosaic-display').hasClass('disabled')) mosaicView();
+			});
+		});
+	}
+
 	$(window).scroll(function() {
 		if ($('#paginator').length) {
 			var url = $('#load_more').attr('href');
 			if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50 && $.active == 0) {
-				$.get(url, function(data) {
-					$('#paginator').html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
-					$.getScript(url);
-				});
+				loadNextPage(url);
 			}
 		}
 	});
 
-	$('#mosaic-display').on('click', function() {
+	/* Mosaic view and list view */
 
+	list = $('#list-display');
+	mosaic = $('#mosaic-display');
+	var posts_wrapper = $('.posts-wrapper');
+	var posts = posts_wrapper.children('.post');
+
+	list.on('click', function() {
+		if (!list.hasClass('disabled')) {
+			$.cookie('mosaic', true);
+			mosaic.removeClass('disabled');
+			list.addClass('disabled');
+			listView();
+		}
 	});
+
+	mosaic.on('click', function() {
+		if (!mosaic.hasClass('disabled')) {
+			$.cookie('mosaic', true);
+			list.removeClass('disabled');
+			mosaic.addClass('disabled');
+			mosaicView();
+		}
+	});
+
+	var listView = function() {
+		posts_wrapper = $('.posts-wrapper');
+		posts = posts_wrapper.children('.post');
+
+		posts.children('.post-head').show();
+		posts.children('.post-bottom').show();
+		posts.children('.comment-like-form').show();
+		$('#posts').removeClass('col-sm-10 col-sm-offset-1 text-center');
+		posts_wrapper.removeClass('col-sm-4');
+		posts_wrapper.removeClass('mosaic');
+	}
+
+	var mosaicView = function() {
+		posts_wrapper = $('.posts-wrapper');
+		posts = posts_wrapper.children('.post');
+
+		if (posts_wrapper.length < 6) {
+			var url = $('#load_more').attr('href');
+			if (url) {
+				loadNextPage(url);
+				posts_wrapper = $('.posts-wrapper');
+				posts = posts_wrapper.children('.post');
+			}
+		}
+
+		posts.children('.post-head').hide();
+		posts.children('.post-bottom').hide();
+		posts.children('.comment-like-form').hide();
+		$('#posts').addClass('col-sm-10 col-sm-offset-1 text-center');
+		posts_wrapper.addClass('col-sm-4');
+		posts_wrapper.addClass('mosaic');
+	}
 
 	/* Explore.search input and custom placeholder */
 

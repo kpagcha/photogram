@@ -78,6 +78,7 @@ body {
 
 			.profile-nav-li {
 				display: none;
+				margin-right: 10px;
 
 				a {
 					padding: 6px 0px 0px 10px;
@@ -105,7 +106,6 @@ body {
 	padding-top: 40px;
 	margin: 0 auto;
 	max-width: 642px;
-	width: 100%;
 }
 
 .post {
@@ -328,6 +328,8 @@ body {
 @media (max-width: 1200px) {
 	.profile-float-wrapper {
 		left: 5%;
+		margin-bottom: 50px;
+		z-index: 1;
 	}
 }
 
@@ -601,5 +603,28 @@ body {
 		&:hover {
 			color: #333;
 		}
+
+		&.disabled {
+			cursor: not-allowed;
+			opacity: .65;
+			color: #125688;
+		}
 	}
+}
+
+#posts {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.mosaic {
+	padding: 0;
+	height: 170px;
+	position: relative;
+	overflow: hidden;
+
+	.img {
+		position: absolute;
+		top: 0;
+	} 
 }

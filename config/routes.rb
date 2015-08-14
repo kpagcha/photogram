@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  get '/posts/explore', to: 'posts#explore', as: 'explore_posts'
+  get '/explore', to: 'posts#explore', as: 'explore_posts'
   resources :posts do
     get '/comments/page/:comment_page', to: 'comments#index', as: 'more_comments'
   	resources :comments
