@@ -147,6 +147,15 @@ ready = function() {
 			$('.placeholder').hide();
 		}
 	});
+
+	/* Show image preview in upload image view when attaching a file */
+
+	$('#post_image').on('change', function(event) {
+		var img = $('#image-preview');
+		var file = URL.createObjectURL(event.target.files[0]);
+		img.attr("src", file);
+		img.removeClass('hidden');
+	});
 };
 
 $(document).ready(ready);

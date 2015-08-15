@@ -29,7 +29,7 @@ module ApplicationHelper
 	end
 
 	def form_image_select post
-		return image_tag post.image.url(:medium), id: 'image-preview', class: 'img-responsive' if post.image
-		image_tag '', id: 'image-previw', class: 'img-responsive'
+		return image_tag post.image.url(:medium), id: 'image-preview', class: 'img-responsive' if post.image.exists?
+		image_tag '', id: 'image-preview', class: 'img-responsive hidden'
 	end
 end
