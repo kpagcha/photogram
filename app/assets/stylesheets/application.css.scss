@@ -626,5 +626,13 @@ body {
 	.img {
 		position: absolute;
 		top: 0;
-	} 
+	}
+
+	@media (max-width: 768px) {
+		height: auto;
+
+		.post {
+			margin-bottom: 0px;
+		}
+	}
 }

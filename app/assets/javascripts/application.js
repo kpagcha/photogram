@@ -95,7 +95,7 @@ ready = function() {
 		posts.children('.post-bottom').show();
 		posts.children('.comment-like-form').show();
 		$('#posts').removeClass('col-sm-10 col-sm-offset-1 text-center');
-		posts_wrapper.removeClass('col-sm-4');
+		posts_wrapper.removeClass('col-md-4 col-sm-6 col-xs-12');
 		posts_wrapper.removeClass('mosaic');
 	}
 
@@ -116,8 +116,11 @@ ready = function() {
 		posts.children('.post-bottom').hide();
 		posts.children('.comment-like-form').hide();
 		$('#posts').addClass('col-sm-10 col-sm-offset-1 text-center');
-		posts_wrapper.addClass('col-sm-4');
+		posts_wrapper.addClass('col-md-4 col-sm-6 col-xs-12');
 		posts_wrapper.addClass('mosaic');
+
+		$('.profile-float-wrapper').hide();
+		$('.profile-nav-li').show();
 	}
 
 	/* Explore.search input and custom placeholder */
